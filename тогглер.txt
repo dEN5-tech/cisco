@@ -1,0 +1,6 @@
+Option Compare Database
+
+Private Sub КнопкаНавигации62_Click()
+    Me.ПодчиненнаяФормаНавигации.SourceObject = "подчиненная форма Клиент"
+End Sub
+
