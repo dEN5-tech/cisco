@@ -1,0 +1,86 @@
+Hello! How can I help you?
+using 'Номер	1 
+Заголовок 	Взаимодействие с сайтом банковских карт 
+Предусловие 	Открыта главная страница сайта https://8qs7th-3000.csb.app/ . Есть доступ к коду сайта https://8qs7th-3000.csb.app/
+ 	 
+Шаг 	Ожидаемый результат 
+Тестовый рендеринг пользовательского интерфейса банковских карт	визуализированный пользовательский интерфейс банковских карт с заголовком, каруселью изображений и меню нижнего колонтитула.
+Нажмите на пункт меню, отличный от значка «Добавить»	Выбранный пункт меню должен измениться, и его цвет должен отражать это изменение.
+Тестовый рендеринг изображений в карусели	карусель должна отображать изображения в повернутом и масштабированном виде
+Тестовый рендеринг аватара пользователя	аватар пользователя должен отображаться в виде закругленного изображения
+Тестовый рендеринг суммы баланса	сумма баланса должна отображаться в правильном формате и стиле
+
+
+' and code 'import Account from "./icons/Account";
+import Add from "./icons/Add";
+import Alarm from "./icons/Alarm";
+import Bookmark from "./icons/Bookmark";
+import Home from "./icons/Home";
+import { useState } from "preact/hooks";
+
+export function App(props) {
+  const images = [
+    "http://jornalnanet.com/wp-content/uploads/2019/12/cartao-azul1-3.jpg",
+  ];
+
+  const menu = [<Home />, <Bookmark />, <Add />, <Alarm />, <Account />];
+
+  const [selectMenu, setSelectMenu] = useState(0);
+
+  return (
+    <>
+      <div className="w-screen h-screen flex bg-black_olive flex flex-col">
+        <header className="flex flex-col">
+          <div className="flex w-full h-full justify-between px-4">
+            <h1 className="text-xl text-white p-5">Bank Cards</h1>
+            <div className="h-12 w-12 m-4">
+              <img
+                src="https://i.pravatar.cc/150?img=30"
+                className="object-cover w-full h-full rounded-full"
+              />
+            </div>
+          </div>
+          <div className=" w-full h-full justify-between px-4">
+            <h1 className="text-base text-silver-700">Balance</h1>
+            <h1 className="text-3xl text-white my-2 font-bold">$1.924,35</h1>
+          </div>
+        </header>
+
+        <div className="flex w-full h-full justify-between px-4 items-center">
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className="rounded-xl object-cover w-full h-full -rotate-90 scale-50"
+            >
+              <img src={image} alt={`image-${index}`} />
+            </div>
+          ))}
+          <div>
+            {images.map((image, index) => (
+              <div className={`rounded-full text-gray `}></div>
+            ))}
+          </div>
+        </div>
+
+        <footer className="flex w-full h-full justify-between px-4 items-end">
+          <div className="flex w-full h-16 bg-black_olive-200 mx-4 my-8 rounded-r-full rounded-l-full">
+            {menu.map((item, i) => (
+              <div
+                onClick={() => setSelectMenu(i)}
+                className={`flex  justify-center items-center ${
+                  i == 2
+                    ? "rounded-full bg-light_green w-1/2 h-full text-black"
+                    : "w-full h-full text-eerie_black-800"
+                } ${i == selectMenu && i !== 2 && "text-light_green"}`}
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </footer>
+      </div>
+    </>
+  );
+}
+', implement test case Номер	2 
+Заголовок 	Взаимодействие с сайтом банковских карт, навигация'
