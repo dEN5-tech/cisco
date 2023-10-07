@@ -1,81 +1,98 @@
-Hello! How can I help you?
-using 'Номер	1 
-Заголовок 	Взаимодействие с сайтом банковских карт 
-Предусловие 	Открыта главная страница сайта https://8qs7th-3000.csb.app/ . Есть доступ к коду сайта https://8qs7th-3000.csb.app/
- 	 
-Шаг 	Ожидаемый результат 
+using System;
+using System.Windows.Forms;
 
+namespace db_form
+{
+    partial class Form1 : Form
+    {
+        private System.ComponentModel.IContainer components = null;
 
-' and code 'import Account from "./icons/Account";
-import Add from "./icons/Add";
-import Alarm from "./icons/Alarm";
-import Bookmark from "./icons/Bookmark";
-import Home from "./icons/Home";
-import { useState } from "preact/hooks";
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-export function App(props) {
-  const images = [
-    "http://jornalnanet.com/wp-content/uploads/2019/12/cartao-azul1-3.jpg",
-  ];
+        private void InitializeComponent()
+        {
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.field1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.field2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.Error_label = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Location = new System.Drawing.Point(50, 50);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(700, 300);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // field1
+            // 
+            this.field1.Name = "field1";
+            // 
+            // field2
+            // 
+            this.field2.Name = "field2";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(675, 388);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Клиент";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(591, 388);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(67, 24);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Заказы";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
+            // Error_label
+            // 
+            this.Error_label.AutoSize = true;
+            this.Error_label.Location = new System.Drawing.Point(1, 432);
+            this.Error_label.Name = "Error_label";
+            this.Error_label.Size = new System.Drawing.Size(35, 13);
+            this.Error_label.TabIndex = 3;
+            this.Error_label.Text = "label1";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Error_label);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dataGridView1);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
-  const menu = [<Home />, <Bookmark />, <Add />, <Alarm />, <Account />];
+        }
 
-  const [selectMenu, setSelectMenu] = useState(0);
-
-  return (
-    <>
-      <div className="w-screen h-screen flex bg-black_olive flex flex-col">
-        <header className="flex flex-col">
-          <div className="flex w-full h-full justify-between px-4">
-            <h1 className="text-xl text-white p-5">Bank Cards</h1>
-            <div className="h-12 w-12 m-4">
-              <img
-                src="https://i.pravatar.cc/150?img=30"
-                className="object-cover w-full h-full rounded-full"
-              />
-            </div>
-          </div>
-          <div className=" w-full h-full justify-between px-4">
-            <h1 className="text-base text-silver-700">Balance</h1>
-            <h1 className="text-3xl text-white my-2 font-bold">$1.924,35</h1>
-          </div>
-        </header>
-
-        <div className="flex w-full h-full justify-between px-4 items-center">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className="rounded-xl object-cover w-full h-full -rotate-90 scale-50"
-            >
-              <img src={image} alt={`image-${index}`} />
-            </div>
-          ))}
-          <div>
-            {images.map((image, index) => (
-              <div className={`rounded-full text-gray `}></div>
-            ))}
-          </div>
-        </div>
-
-        <footer className="flex w-full h-full justify-between px-4 items-end">
-          <div className="flex w-full h-16 bg-black_olive-200 mx-4 my-8 rounded-r-full rounded-l-full">
-            {menu.map((item, i) => (
-              <div
-                onClick={() => setSelectMenu(i)}
-                className={`flex  justify-center items-center ${
-                  i == 2
-                    ? "rounded-full bg-light_green w-1/2 h-full text-black"
-                    : "w-full h-full text-eerie_black-800"
-                } ${i == selectMenu && i !== 2 && "text-light_green"}`}
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-        </footer>
-      </div>
-    </>
-  );
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn field1;
+        private DataGridViewTextBoxColumn field2;
+        private Button button1;
+        private Button button2;
+        private Label Error_label;
+    }
 }
-', implement test case Номер	2 
-Заголовок 	Взаимодействие с сайтом банковских карт, навигация'
